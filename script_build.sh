@@ -55,6 +55,10 @@ wait
 echo -e ${cya}"OUT dir from your repo deleted"${txtrst};
 fi
 
+# To add HostName
+export KBUILD_BUILD_USER="sweeto"
+export KBUILD_BUILD_HOST="yui"
+
 # Build ROM
 . build/envsetup.sh
 lunch "$lunch_command"_"$device"-userdebug
