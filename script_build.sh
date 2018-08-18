@@ -9,7 +9,7 @@
 # Some User's Details. Please fill it with your own details.
 
 # Replace "legacy" with your own SSH Username in lowercase
-username=legacy
+username=sipun
 
 # Assign values to parameters used in Script from Jenkins Job parameters
 use_ccache="$1"
@@ -50,7 +50,7 @@ fi
 # Its Clean Time
 if [ "$make_clean" = "yes" ];
 then
-make clean && make clobber
+rm -rf out/target/product/land
 wait
 echo -e ${cya}"OUT dir from your repo deleted"${txtrst};
 fi
@@ -59,7 +59,8 @@ fi
 export KBUILD_BUILD_USER="sweeto"
 export KBUILD_BUILD_HOST="yui"
 
+
 # Build ROM
 . build/envsetup.sh
-lunch "$lunch_command"_"$device"-userdebug
-make "$target_command" -j8
+lunch aosip_land-userdebug
+time mka kronic
