@@ -59,6 +59,8 @@ fi
 export KBUILD_BUILD_USER="sweeto"
 export KBUILD_BUILD_HOST="yui"
 
+# Maintainer
+export DEVICE_MAINTAINERS="Sipun Ku Mahanta"
 
 # Build ROM
 . build/envsetup.sh
