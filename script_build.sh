@@ -4,7 +4,7 @@
 
 # Clone this script in your ROM Repo using following commands.
 # cd rom_repo
-# curl https://raw.githubusercontent.com/LegacyServer/Scripts/master/script_build.sh > script_build.sh
+# curl https://raw.githubusercontent.com/Sweeto143/legacy_script/aosip/script_build.sh > script_build.sh
 
 # Some User's Details. Please fill it with your own details.
 
