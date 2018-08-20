@@ -2,12 +2,6 @@
 
 # This Script needs one change from the users and have some instructions how to use it, so please do read first 10 Lines of the Script.
 
-# Clone this script in your ROM Repo using following commands.
-# cd rom_repo
-# curl https://raw.githubusercontent.com/Sweeto143/legacy_script/aosip/script_build.sh > script_build.sh
-
-# Some User's Details. Please fill it with your own details.
-
 # Replace "legacy" with your own SSH Username in lowercase
 username=sipun
 
