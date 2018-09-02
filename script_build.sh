@@ -59,5 +59,5 @@ export DEVICE_MAINTAINERS="Sipun Ku Mahanta"
 
 # Build ROM
 . build/envsetup.sh
-lunch aosip_land-userdebug
-time mka kronic
+lunch dot_land-userdebug
+brunch land
