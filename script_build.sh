@@ -56,5 +56,5 @@ export KBUILD_BUILD_HOST="yui"
 
 # Build ROM
 . build/envsetup.sh
-lunch dot_whyred-userdebug
+lunch superior_whyred-userdebug
 brunch whyred
