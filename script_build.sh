@@ -57,4 +57,4 @@ export KBUILD_BUILD_HOST="yui"
 # Build ROM
 . build/envsetup.sh
 lunch superior_whyred-userdebug
-brunch whyred
+mka bacon -j8
