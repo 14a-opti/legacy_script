@@ -45,7 +45,7 @@ fi
 if [ "$make_clean" = "yes" ];
 then
 make clean && make clobber
-rm -rf out/target/product/land
+rm -rf out/target/product/whyred
 wait
 echo -e ${cya}"OUT dir from your repo deleted"${txtrst};
 fi
@@ -54,10 +54,7 @@ fi
 export KBUILD_BUILD_USER="sweeto"
 export KBUILD_BUILD_HOST="yui"
 
-# Maintainer
-export DEVICE_MAINTAINERS="Sipun Ku Mahanta"
-
 # Build ROM
 . build/envsetup.sh
-lunch dot_land-userdebug
-brunch land
+lunch dot_whyred-userdebug
+brunch whyred
