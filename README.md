@@ -8,7 +8,7 @@
 -----------------------------------------------------------------------
 
 
-Legacy Script For Building dotOS For Land
+Legacy Script For Building DotOS For Whyred
 ====================================
 
 
