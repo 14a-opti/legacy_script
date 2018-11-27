@@ -45,7 +45,6 @@ fi
 if [ "$make_clean" = "yes" ];
 then
 make clean && make clobber
-rm -rf out/target/product/whyred
 wait
 echo -e ${cya}"OUT dir from your repo deleted"${txtrst};
 fi
@@ -53,6 +52,7 @@ fi
 # To add HostName
 export KBUILD_BUILD_USER="sweeto"
 export KBUILD_BUILD_HOST="yui"
+export DOT_OFFICIAL=true
 
 # Build ROM
 . build/envsetup.sh
