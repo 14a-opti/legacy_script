@@ -57,4 +57,4 @@ export DOT_OFFICIAL=true
 # Build ROM
 . build/envsetup.sh
 lunch dot_whyred-userdebug
-mka bacon -j8
+make bacon
