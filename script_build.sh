@@ -52,9 +52,10 @@ fi
 # To add HostName
 export KBUILD_BUILD_USER="sweeto"
 export KBUILD_BUILD_HOST="yui"
-export DOT_OFFICIAL=true
+export PIXYS_BUILD_TYPE=OFFICIAL
+export DEVICE_MAINTAINER="Sipun Ku Mahanta"
 
 # Build ROM
 . build/envsetup.sh
-lunch dot_whyred-userdebug
+lunch pixys_whyred-userdebug
 make bacon
