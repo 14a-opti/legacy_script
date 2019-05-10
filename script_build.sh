@@ -44,7 +44,7 @@ fi
 # Its Clean Time
 if [ "$make_clean" = "yes" ];
 then
-make clean && make clobber
+rm -rf out/target/product/*
 wait
 echo -e ${cya}"OUT dir from your repo deleted"${txtrst};
 fi
