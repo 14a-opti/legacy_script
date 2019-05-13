@@ -53,7 +53,7 @@ fi
 export KBUILD_BUILD_USER="sweeto"
 export KBUILD_BUILD_HOST="yui"
 export PIXYS_BUILD_TYPE=OFFICIAL
-export DEVICE_MAINTAINER="Sipun Ku Mahanta"
+export DEVICE_MAINTAINERS="Sipun Ku Mahanta"
 
 # Build ROM
 . build/envsetup.sh
