@@ -53,6 +53,7 @@ fi
 export KBUILD_BUILD_USER="sweeto"
 export KBUILD_BUILD_HOST="yui"
 export SUPERIOR_OFFICIAL=true
+export SELINUX_IGNORE_NEVERALLOWS=true
 
 # Build ROM
 . build/envsetup.sh
