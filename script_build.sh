@@ -6,11 +6,10 @@
 username=sipun
 
 # Assign values to parameters used in Script from Jenkins Job parameters
-use_ccache="$1"
-make_clean="$2"
-lunch_command="$3"
-device="$4"
-target_command="$5"
+make_clean="$1"
+lunch_command="$2"
+device="$3"
+target_command="$4"
 
 # Colors makes things beautiful
 export TERM=xterm
@@ -37,5 +36,5 @@ export SUPERIOR_OFFICIAL=true
 
 # Build ROM
 . build/envsetup.sh
-lunch superior_whyred-userdebug
+lunch superior_$device-userdebug
 mka bacon -j24
