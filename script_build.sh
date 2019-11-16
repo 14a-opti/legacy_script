@@ -21,25 +21,6 @@ export TERM=xterm
     cya=$(tput setaf 6)             #  cyan
     txtrst=$(tput sgr0)             #  Reset
 
-# CCACHE UMMM!!! Cooks my builds fast
-
-if [ "$use_ccache" = "yes" ];
-then
-echo -e ${blu}"CCACHE is enabled for this build"${txtrst}
-export USE_CCACHE=1
-export CCACHE_DIR=/home/ccache/$username
-prebuilts/misc/linux-x86/ccache/ccache -M 50G
-fi
-
-if [ "$use_ccache" = "clean" ];
-then
-export CCACHE_DIR=/home/ccache/$username
-ccache -C
-export USE_CCACHE=1
-prebuilts/misc/linux-x86/ccache/ccache -M 50G
-wait
-echo -e ${grn}"CCACHE Cleared"${txtrst};
-fi
 
 # Its Clean Time
 if [ "$make_clean" = "yes" ];
@@ -53,9 +34,8 @@ fi
 export KBUILD_BUILD_USER="sweeto"
 export KBUILD_BUILD_HOST="yui"
 export SUPERIOR_OFFICIAL=true
-export SELINUX_IGNORE_NEVERALLOWS=true
 
 # Build ROM
 . build/envsetup.sh
 lunch superior_whyred-userdebug
-mka bacon -j8
+mka bacon -j24
