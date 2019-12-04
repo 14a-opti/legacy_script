@@ -61,9 +61,8 @@ fi
 # To add HostName
 export KBUILD_BUILD_USER="sweeto"
 export KBUILD_BUILD_HOST="yui"
-export SUPERIOR_OFFICIAL=true
 
 # Build ROM
 . build/envsetup.sh
-lunch superior_$device-userdebug
+lunch ${lunch_command}_${device}-userdebug
 mka bacon -j24
