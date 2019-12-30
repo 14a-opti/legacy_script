@@ -2,6 +2,12 @@
 
 # This Script needs one change from the users and have some instructions how to use it, so please do read first 10 Lines of the Script.
 
+# Clone this script in your ROM Repo using following commands.
+# cd rom_repo
+# curl https://raw.githubusercontent.com/LegacyServer/Scripts/master/script_build.sh > script_build.sh
+
+# Some User's Details. Please fill it with your own details.
+
 # Replace "legacy" with your own SSH Username in lowercase
 username=sipun
 
@@ -26,17 +32,19 @@ export TERM=xterm
 if [ "$use_ccache" = "yes" ];
 then
 echo -e ${blu}"CCACHE is enabled for this build"${txtrst}
+export CCACHE_EXEC=$(which ccache)
 export USE_CCACHE=1
-export CCACHE_DIR=/home/ccache/$username
-prebuilts/misc/linux-x86/ccache/ccache -M 50G
+export CCACHE_DIR=/home/subins/ccache/superior
+ccache -M 50G
 fi
 
 if [ "$use_ccache" = "clean" ];
 then
-export CCACHE_DIR=/home/ccache/$username
+export CCACHE_EXEC=$(which ccache)
+export CCACHE_DIR=/home/subins/ccache/superior
 ccache -C
 export USE_CCACHE=1
-prebuilts/misc/linux-x86/ccache/ccache -M 50G
+ccache -M 50G
 wait
 echo -e ${grn}"CCACHE Cleared"${txtrst};
 fi
@@ -45,6 +53,7 @@ fi
 if [ "$make_clean" = "yes" ];
 then
 rm -rf out/target/product/*
+#make Clean
 wait
 echo -e ${cya}"OUT dir from your repo deleted"${txtrst};
 fi
@@ -52,10 +61,10 @@ fi
 # To add HostName
 export KBUILD_BUILD_USER="sweeto"
 export KBUILD_BUILD_HOST="yui"
-export PIXYS_BUILD_TYPE=OFFICIAL
 export DEVICE_MAINTAINERS="Sipun Ku Mahanta"
+export BUILD_WITH_GAPPS=true
 
 # Build ROM
 . build/envsetup.sh
-lunch pixys_whyred-userdebug
-make bacon
+lunch ${lunch_command}_${device}-userdebug
+mka pixys -j24
