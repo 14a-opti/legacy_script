@@ -13,10 +13,11 @@ username=sipun
 
 # Assign values to parameters used in Script from Jenkins Job parameters
 use_ccache="$1"
-make_clean="$2"
-lunch_command="$3"
-device="$4"
-target_command="$5"
+tree_clean="$2"
+make_clean="$3"
+lunch_command="$4"
+device="$5"
+target_command="$6"
 
 # Colors makes things beautiful
 export TERM=xterm
@@ -49,6 +50,21 @@ wait
 echo -e ${grn}"CCACHE Cleared"${txtrst};
 fi
 
+# Device stuff
+if [ "$tree_clean" = "yes" ];
+then
+rm -rf device/xiaomi/*
+rm -rf kernel/xiaomi/*
+rm -rf vendor/xiaomi/*
+git clone https://github.com/PixysOS-Devices/device_xiaomi_whyred.git device/xiaomi/whyred
+git clone https://github.com/PixysOS-Devices/kernel_xiaomi_whyred.git kernel/xiaomi/whyred
+git clone https://github.com/PixysOS-Devices/vendor_xiaomi_whyred.git vendor/xiaomi/whyred
+git clone https://github.com/Sweeto143/vendor_xiaomi_MiuiCamera.git vendor/xiaomi/MiuiCamera
+#make Clean
+wait
+echo -e ${cya}"Trees removed and Recloned"${txtrst};
+fi
+
 # Its Clean Time
 if [ "$make_clean" = "yes" ];
 then
@@ -56,6 +72,14 @@ rm -rf out/target/product/*
 #make Clean
 wait
 echo -e ${cya}"OUT dir from your repo deleted"${txtrst};
+fi
+
+# Its Images Clean Time
+if [ "$make_clean" = "installclean" ];
+then
+make installclean
+wait
+echo -e ${cya}"Images deleted from OUT dir"${txtrst};
 fi
 
 # To add HostName
@@ -67,4 +91,4 @@ export BUILD_WITH_GAPPS=true
 # Build ROM
 . build/envsetup.sh
 lunch ${lunch_command}_${device}-userdebug
-mka pixys -j24
+mka ${target_command} -j24
